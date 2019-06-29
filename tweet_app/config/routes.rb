@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # 投稿一覧ページ
   get "index" => "posts#index"
   # 新規投稿ページ
-  get "newPost" => "posts#newPost" 
+  get "new-post" => "posts#newPost" 
   # 投稿詳細ページ
   get "show/:id" => "posts#show"
   # 投稿編集ページ
