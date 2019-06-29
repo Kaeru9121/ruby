@@ -13,10 +13,30 @@ class PostsController < ApplicationController
     @post = Post.find_by(id:params[:id])
   end
 
+  # 投稿編集ページ
+  def edit
+    @post = Post.find_by(id:params[:id])
+  end
+
   # 投稿保存用アクション
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(content:params[:content])
     @post.save
+    redirect_to("/index")
+  end
+
+  # 投稿更新用アクション
+  def update
+    @post = Post.find_by(id:params[:id])
+    @post.content = params[:content]
+    @post.save
+    redirect_to("/index")
+  end
+
+  # 投稿削除用アクション
+  def destroy
+    @post = Post.find_by(id:params[:id])
+    @post.destroy
     redirect_to("/index")
   end
 end
