@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # ログインページ
+  get "login" => "users#login_form"
+  # ログイン判定用アクション
+  post "login" => "users#login"
+  # ログアウト用アクション
+  post "logout" => "users#logout"
+
   # トッップページ
   get "/" => "home#top"
   # 紹介ページ
@@ -17,4 +24,18 @@ Rails.application.routes.draw do
   post "update/:id" => "posts#update"
   # 投稿削除用アクション
   post "destroy/:id" => "posts#destroy"
+
+  # 新規ユーザ登録ページ
+  get "signup" => "users#signup"
+  # ユーザ一覧ページ
+  get "user/index" => "users#index"
+  # 新規ユーザー登録用アクション
+  post "user/create" => "users#create"
+  # ユーザー情報編集ページ
+  get "user/edit/:id" => "users#edit"
+  # ユーザー情報更新用アクション
+  post "user/update/:id" => "users#update"
+  # ユーザー詳細ページ
+  get "user/:id" => "users#show"
+
 end
